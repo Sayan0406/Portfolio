@@ -1,10 +1,17 @@
-import { Box } from '@chakra-ui/react'
-import React from 'react'
+import { Center, Heading, Stack, Text } from '@chakra-ui/react'
 
 export default function Sidebar() {
   return (
-    <Box p={5} borderWidth="1px" borderColor="gray.700" borderRadius="md">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus aut sint doloribus! Quis nesciunt qui voluptatibus accusantium obcaecati id, veritatis labore exercitationem eaque modi cum. Repudiandae molestiae mollitia perferendis debitis sit, atque distinctio iusto deleniti fugit eum dolorum nemo quibusdam nesciunt sequi quaerat laudantium aliquid 
-    </Box>
+    <Stack p={5} borderWidth="1px" borderColor="gray.700" borderRadius="md" width={200} height={'fit-content'}>
+        <Heading as={'h2'} fontSize={'md'}>
+        Rahul Chaurasiya
+        </Heading>
+        <Text fontSize={'xs'} color={'gray.400'} >
+        👋 Hi, I&apos;m Dawa Sherpa, a Fullstack and AI Developer. I have built many projects and leveled up my skills while working in various companies. I work on personal cool projects like AI-related chatbots, Facebook chatbots, scrapers, and AI-driven automations. I also complete software projects for clients and have successfully delivered many. It&apos;s been 3 years of immersing myself in the world of development.
+        </Text>
+        <Center>
+          
+        </Center>
+    </Stack>
   )
 }
