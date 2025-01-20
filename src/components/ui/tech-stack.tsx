@@ -3,6 +3,7 @@ import {
   Flex,
   Heading,
   HStack,
+  Separator,
   SimpleGrid,
   Stack,
   Text,
@@ -40,7 +41,7 @@ export default function TechStack() {
       <Text fontSize={"md"} color={"gray.400"}>
         Focus. Consistent. Discipline.
       </Text>
-      <hr color="gray.100" />
+      <Separator opacity={0.2} />
       <Flex justifyContent={"space-between"}>
         <Button
           borderRadius={"md"}
@@ -71,7 +72,7 @@ export default function TechStack() {
         </HStack>
       </Flex>
       <Heading as={"h2"} fontSize={"lg"} fontWeight={"bold"}>
-       Tech Stack
+        Tech Stack
       </Heading>
       <SimpleGrid columns={3} gap={3}>
         {technologies.map((tech, index) => {
@@ -110,39 +111,10 @@ const technologies = [
   { name: "Python", badge: <FaPython /> },
   { name: "MongoDB", badge: <BiLogoMongodb /> },
   { name: "AWS", badge: <FaAws /> },
-  {
-    name: "OpenAI",
-    badge:
-    <AiOutlineOpenAI />
-    ,
-  },
-  {
-    name: "Firebase",
-    badge:
-    <BiLogoFirebase />
-    ,
-  },
-  {
-    name: "Git",
-    badge:
-    <FaGitAlt />,
-  },
-  {
-    name: "Docker",
-    badge:
-    <FaDocker />
-    ,
-  },
-  {
-    name: "Prisma",
-    badge:
-    <SiPrisma />
-    ,
-  },
-  {
-    name: "MUI",
-    badge:
-    <SiMui />
-,
-  },
+  { name: "OpenAI", badge: <AiOutlineOpenAI /> },
+  { name: "Firebase", badge: <BiLogoFirebase /> },
+  { name: "Git", badge: <FaGitAlt /> },
+  { name: "Docker", badge: <FaDocker /> },
+  { name: "Prisma", badge: <SiPrisma /> },
+  { name: "MUI", badge: <SiMui /> },
 ];
