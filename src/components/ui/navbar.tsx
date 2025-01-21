@@ -6,6 +6,13 @@ import { PiProjectorScreen } from "react-icons/pi";
 import { Avatar } from "./avatar";
 import { MyContainer } from "./container";
 
+
+type NavLink = {
+  label: string;
+  icon : React.ReactNode;
+  href: string;
+}
+
 export default function Navbar() {
   return (
     <Box p={{ md: 12 }} pt={10} mb={{ base: 8, md: 0 }}>
@@ -52,51 +59,24 @@ export default function Navbar() {
               </Link>
             </Button>
           <HStack gap={5} hideBelow={'md'}>
-            <Button
-              variant={"outline"}
-              border={0}
-              p={2}
-              color={"white"}
-              _hover={{ bg: "#0d1325" }}
-              borderColor={"gray.600"}
-            >
-              <IoHomeOutline />
-              Home
-            </Button>
-            <Button
-              variant={"outline"}
-              border={0}
-              p={2}
-              color={"white"}
-              _hover={{ bg: "#0d1325" }}
-              borderColor={"gray.600"}
-            >
-              <PiProjectorScreen />
-              Projects
-            </Button>
-            <Button
-              variant={"outline"}
-              border={0}
-              p={2}
-              color={"white"}
-              _hover={{ bg: "#0d1325" }}
-              borderColor={"gray.600"}
-            >
-              <BsBriefcase />
-              Work{" "}
-            </Button>
-            <Button
-              variant={"outline"}
-              border={0}
-              p={2}
-              color={"white"}
-              _hover={{ bg: "#0d1325" }}
-              borderColor={"gray.600"}
-            >
-              <MdMailOutline />
-              Contact{" "}
-            </Button>
            
+          <HStack gap={5} hideBelow={'md'}>
+           {navitems.map((nav, index) => {
+            return (
+              <Button
+              key={index}
+              variant={"outline"}
+              border={0}
+              p={2}
+              color={"white"}
+              _hover={{ bg: "#0d1325" }}
+              borderColor={"gray.600"}
+            >
+              {nav.icon}
+              {nav.label}
+            </Button>
+            )
+           })}
             <Button variant={"outline"} 
           color={'white'}
              padding={2}
@@ -106,6 +86,7 @@ export default function Navbar() {
             <IoMoonOutline />
 
             </Button>
+          </HStack>
           </HStack>
           <Button p={2} hideFrom={'md'} variant={"outline"}  
               padding={2}
@@ -121,3 +102,28 @@ export default function Navbar() {
     </Box>
   );
 }
+
+
+
+const navitems: NavLink[] = [
+  {
+    label : 'Home',
+    icon : <IoHomeOutline />,
+    href : '#'
+  },
+  {
+    label : 'Projects',
+    icon : <PiProjectorScreen />,
+    href : '#'
+  },
+  {
+    label : 'Work',
+    icon : <BsBriefcase />,
+    href : '#'
+  },
+  {
+    label : 'Contact',
+    icon :   <MdMailOutline />,
+    href : '#'
+  },
+]
