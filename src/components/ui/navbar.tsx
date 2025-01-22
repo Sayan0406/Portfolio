@@ -63,9 +63,9 @@ export default function Navbar() {
           <HStack gap={5} hideBelow={'md'}>
            {navitems.map((nav, index) => {
             return (
-              <Button
+              <Link
               key={index}
-              variant={"outline"}
+              href={nav.href}
               border={0}
               p={2}
               color={"white"}
@@ -74,7 +74,7 @@ export default function Navbar() {
             >
               {nav.icon}
               {nav.label}
-            </Button>
+            </Link>
             )
            })}
             <Button variant={"outline"} 
@@ -109,21 +109,21 @@ const navitems: NavLink[] = [
   {
     label : 'Home',
     icon : <IoHomeOutline />,
-    href : '#'
+    href : '#home'
   },
   {
     label : 'Projects',
     icon : <PiProjectorScreen />,
-    href : '#'
+    href : '#projects'
   },
   {
     label : 'Work',
     icon : <BsBriefcase />,
-    href : '#'
+    href : '#work'
   },
   {
     label : 'Contact',
     icon :   <MdMailOutline />,
-    href : '#'
+    href : '#contact'
   },
 ]

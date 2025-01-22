@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <Stack gap={6} marginBottom={10}>
+    <Stack gap={6} marginBottom={10} id="contact">
       <Heading as={"h2"} fontSize={"lg"} fontWeight={"bold"}>
         Contact
       </Heading>

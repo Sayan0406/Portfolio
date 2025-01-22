@@ -34,7 +34,7 @@ import { SiExpress, SiMui, SiPrisma } from "react-icons/si";
 
 export default function TechStack() {
   return (
-    <Stack gap={6}>
+    <Stack gap={6} id="home">
       <Heading as={"h1"} fontSize={"xl"} fontWeight={"bold"}>
         I convert YOUR digital vision into reality.
       </Heading>

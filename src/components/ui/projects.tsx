@@ -4,7 +4,7 @@ import { CNLink } from "../chakra-next";
 
 export default function Projects() {
   return (
-    <Stack gap={6}>
+    <Stack gap={6} id="projects">
       <Heading as={"h2"} fontSize={"lg"} fontWeight={"bold"}>
         Projects
       </Heading>

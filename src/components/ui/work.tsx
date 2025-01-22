@@ -3,7 +3,7 @@ import { Flex, Heading, HStack, Separator, Stack, Text } from "@chakra-ui/react"
 
 export default function Work() {
   return (
-    <Stack gap={6}>
+    <Stack gap={6} id="work">
       <Heading as={"h2"} fontSize={"lg"} fontWeight={"bold"}>
         Work
       </Heading>
