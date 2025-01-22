@@ -10,7 +10,7 @@ export const MyContainer = ({ children, ...props }: Props) => {
   return (
     <Container
       px={{ base: 2, md: 4 }}
-      maxW={{ md: "3xl" }}
+      maxW={{ md: "4xl" }}
       mx={"auto"}
       {...props}
     >

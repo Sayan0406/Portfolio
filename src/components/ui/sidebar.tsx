@@ -2,7 +2,7 @@ import { Center, Heading, Stack, Text } from '@chakra-ui/react'
 
 export default function Sidebar() {
   return (
-    <Stack p={5} borderWidth="1px" borderColor="gray.700" borderRadius="md" height={'fit-content'}>
+    <Stack p={5} borderWidth="1px" borderColor="gray.700" borderRadius="md" height={'fit-content'} position={{md : 'sticky'}} top={{md : 20}} >
         <Heading as={'h2'} fontSize={'md'}>
         Rahul Chaurasiya
         </Heading>
