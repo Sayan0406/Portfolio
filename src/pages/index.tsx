@@ -9,7 +9,7 @@ import { GridItem, SimpleGrid, Stack } from "@chakra-ui/react";
 export default function Home() {
   return (
     <MyContainer>
-      <SimpleGrid columns={3} gap={8}>
+      <SimpleGrid columns={{base : 1, md : 3}} gap={8} p={{base : 2 , md : 0}}>
         <Sidebar />
         <GridItem colSpan={{ md: 2 }}>
           <Stack gap={10}>

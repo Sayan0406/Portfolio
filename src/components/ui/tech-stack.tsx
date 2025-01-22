@@ -42,7 +42,7 @@ export default function TechStack() {
         Focus. Consistent. Discipline.
       </Text>
       <Separator opacity={0.2} />
-      <Flex justifyContent={"space-between"}>
+      <Flex direction={{base : "column", sm : "row"}} gap={{base : 5, sm : 0}} justifyContent={"space-between"}>
         <Button
           borderRadius={"md"}
           bg={"white"}
@@ -52,7 +52,7 @@ export default function TechStack() {
           <IoMdCheckmarkCircleOutline />
           Hire me
         </Button>
-        <HStack gap={4}>
+        <HStack gap={4} justify={{base : "space-between", sm : "start"}}>
           <Flex direction="column">
             <Heading as="h3" fontSize="sm" fontWeight="bold" lineHeight="short">
               3 yrs
@@ -74,7 +74,7 @@ export default function TechStack() {
       <Heading as={"h2"} fontSize={"lg"} fontWeight={"bold"}>
         Tech Stack
       </Heading>
-      <SimpleGrid columns={3} gap={3}>
+      <SimpleGrid columns={{base : 2, sm : 3}} gap={3}>
         {technologies.map((tech, index) => {
           return (
             <>
