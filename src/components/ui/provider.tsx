@@ -46,7 +46,17 @@ export const system = createSystem(defaultConfig, {
           },
         },
         brand: {
-          
+          DEFAULT: {
+            value: { _light: "#030711", _dark: "white" }, 
+          },
+          MUTED: {
+            value: { _light: "gray.500", _dark: "gray.700" }, 
+          },
+        },
+        border: {
+          DEFAULT: {
+            value: { _light: "gray.300", _dark: "gray.900" }, 
+          },
         }
       }
     }
