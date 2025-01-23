@@ -1,14 +1,14 @@
 "use client";
+import { ColorModeButton, useColorMode } from "@/components/ui/color-mode";
 import { Box, Button, Flex, HStack, Link, Stack } from "@chakra-ui/react";
+import { useState } from "react";
 import { BsBriefcase } from "react-icons/bs";
-import { IoHomeOutline, IoMenu, IoMoonOutline } from "react-icons/io5";
+import { IoHomeOutline, IoMenu } from "react-icons/io5";
 import { MdMailOutline } from "react-icons/md";
 import { PiProjectorScreen } from "react-icons/pi";
+import { RxCross2 } from "react-icons/rx";
 import { Avatar } from "./avatar";
 import { MyContainer } from "./container";
-import { useState } from "react";
-import { RxCross2 } from "react-icons/rx";
-
 type NavLink = {
   label: string;
   icon: React.ReactNode;
@@ -17,6 +17,9 @@ type NavLink = {
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { toggleColorMode } = useColorMode();
+  
+  
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -29,7 +32,10 @@ export default function Navbar() {
         borderWidth="1px"
         borderColor="gray.700"
         borderRadius="md"
-        bgColor={"#030711"}
+        bg="white"
+        _dark={{
+          bg: "#030711",
+        }}
       >
         <Flex
           justifyContent={{
@@ -49,7 +55,7 @@ export default function Navbar() {
             >
               <Link
                 fontWeight={"bold"}
-                color={"white"}
+                // color={color}
                 href="#"
                 _focus={{ outline: "none", boxShadow: "none" }}
                 _hover={{ textDecoration: "none" }}
@@ -67,7 +73,7 @@ export default function Navbar() {
           >
             <Link
               fontWeight={"bold"}
-              color={"white"}
+              // color={color}
               href="#"
               _focus={{ outline: "none", boxShadow: "none" }}
               _hover={{ textDecoration: "none" }}
@@ -75,35 +81,37 @@ export default function Navbar() {
               @rahulc_3
             </Link>
           </Button>
-       
-            <HStack gap={4} hideBelow={"md"}>
-              {navitems.map((nav, index) => {
-                return (
-                  <Link
-                    key={index}
-                    href={nav.href}
-                    border={0}
-                    p={2}
-                    color={"white"}
-                    _hover={{ bg: "#0d1325" }}
-                    borderColor={"gray.600"}
-                  >
-                    {nav.icon}
-                    {nav.label}
-                  </Link>
-                );
-              })}
-              <Button
-                variant={"outline"}
-                color={"white"}
-                padding={2}
-                _hover={{ bg: "#0d1325" }}
-                borderColor={"gray.600"}
-              >
-                {<IoMoonOutline />}
-              </Button>
-            </HStack>
-        
+
+          <HStack gap={4} hideBelow={"md"}>
+            {navitems.map((nav, index) => {
+              return (
+                <Link
+                  key={index}
+                  href={nav.href}
+                  border={0}
+                  p={2}
+                  // color={color}
+                  _hover={{ bg: "#0d1325" }}
+                  borderColor={"gray.600"}
+                >
+                  {nav.icon}
+                  {nav.label}
+                </Link>
+              );
+            })}
+            {/* <Button
+              variant={"outline"}
+              color={"white"}
+              padding={2}
+              _hover={{ bg: "#0d1325" }}
+              borderColor={"gray.600"}
+              onClick={toggleColorMode}
+            >
+              {<IoMoonOutline />}
+            </Button> */}
+            <ColorModeButton onClick={toggleColorMode}/>
+          </HStack>
+
           <Button
             p={2}
             hideFrom={"md"}
@@ -137,15 +145,18 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-              <Button
+              {/* <Button
                 variant={"outline"}
                 color={"white"}
                 padding={2}
                 _hover={{ bg: "#0d1325" }}
                 borderColor={"gray.600"}
               >
-                <IoMoonOutline />
-              </Button>
+                {colorMode === "light" ? <FaRegSun /> : <FaRegMoon />}
+                
+                
+              </Button> */}
+              <ColorModeButton />
             </Stack>
           </Box>
         )}

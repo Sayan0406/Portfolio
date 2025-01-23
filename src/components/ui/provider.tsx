@@ -1,12 +1,11 @@
 'use client'
 
 import {
-  Box,
   ChakraProvider,
   createSystem,
-  defaultConfig,
+  defaultConfig
 } from '@chakra-ui/react'
-import { ReactNode } from 'react'
+import { ColorModeProvider, ColorModeProviderProps } from './color-mode'
 
 
 export const system = createSystem(defaultConfig, {
@@ -14,8 +13,8 @@ export const system = createSystem(defaultConfig, {
     'html , body' : {
       lineHeight :"1",
       scrollBehavior : "smooth",
-      bg : "#030711",
-      color : "white",
+      // bg : "#030711",
+      // color : "white",
     },
    '::-webkit-scrollbar': {
       width: '10px',
@@ -38,14 +37,29 @@ export const system = createSystem(defaultConfig, {
       bg: 'white',
     },
   },
+  theme: {
+    semanticTokens: {
+      colors: {
+        bg: {
+          DEFAULT: {
+            value: { _light: "{colors.white}", _dark: "#030711" }, 
+          },
+        },
+        brand: {
+          
+        }
+      }
+    }
+  }
 
   
 })
 
-export function Provider(props: { children: ReactNode }) {
+export function Provider(props: ColorModeProviderProps) {
   return (
     <ChakraProvider value={system}>
-      <Box >{props.children}</Box>
+      <ColorModeProvider {...props} />
     </ChakraProvider>
-  )
+  );
 }
+

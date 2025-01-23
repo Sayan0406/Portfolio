@@ -41,13 +41,17 @@ export default function TechStack() {
       <Text fontSize={"md"} color={"gray.400"}>
         Focus. Consistent. Discipline.
       </Text>
-      <Separator opacity={0.2} />
+      <Separator opacity={0.7} />
       <Flex direction={{base : "column", sm : "row"}} gap={{base : 5, sm : 0}} justifyContent={"space-between"}>
         <Button
           borderRadius={"md"}
-          bg={"white"}
-          color={"black"}
-          _hover={{ bg: "whiteAlpha.900" }}
+          bg={"#030711"}
+          color={"white"}
+          _hover={{ bg: "#0f172a" }}
+          _dark={{bg : "white", color : "#030711", 
+            _hover : {
+              bg : "whiteAlpha.900"
+            }}}
         >
           <IoMdCheckmarkCircleOutline />
           Hire me
@@ -80,10 +84,14 @@ export default function TechStack() {
             <>
               <Button
                 variant={"outline"}
-                _hover={{ bg: "#0d1325" }}
-                color={"white"}
-                borderColor={"gray.600"}
+                _hover={{ bg: "blue.50" }}
+                color={"#030711"}
+                borderColor={"gray.300"}
                 key={index}
+                _dark={{color : "white", bg : "#030711", borderColor : "gray.900",
+                  _hover : {
+                    bg : "#0f172a",
+                  }}}
               >
                 {tech.badge}
                 {tech.name}
