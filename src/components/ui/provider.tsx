@@ -47,17 +47,22 @@ export const system = createSystem(defaultConfig, {
         },
         brand: {
           DEFAULT: {
-            value: { _light: "#030711", _dark: "white" }, 
+            value: { _light: "#0f172a", _dark: "#E1E7EF" }, 
+          },
+          SECONDARY : {
+            value : { _light: "#7f8EA3", _dark: "#7f8EA3"}
+          },
+          SUBTLE: {
+            value : { _light: "#0f172a", _dark: "colors.gray.200"}
           },
           MUTED: {
-            value: { _light: "gray.500", _dark: "gray.700" }, 
+            value: { _light: "#f1f5f9", _dark: "#384252" }, 
           },
+          EMPHASIZED: {
+            value: { _light: "colors.gray.300", _dark: "colors.gray.700" }, 
+          }
         },
-        border: {
-          DEFAULT: {
-            value: { _light: "gray.300", _dark: "gray.900" }, 
-          },
-        }
+        
       }
     }
   }

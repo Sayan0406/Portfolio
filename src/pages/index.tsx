@@ -20,7 +20,7 @@ export default function Home() {
     <MyContainer>
       <SimpleGrid columns={{base : 1, md : 3}} gap={8} p={{base : 2 , md : 0}}>
         <GridItem hideFrom={'md'}>
-        <Text onClick={handleToggleSidebar}>{isSidebarOpen ? "Hide Sidebar" : "Show Sidebar"}</Text>
+        <Text onClick={handleToggleSidebar} color={'brand.SECONDARY'}>{isSidebarOpen ? "Hide Sidebar" : "Show Sidebar"}</Text>
         {isSidebarOpen && <Sidebar />}
         </GridItem>
         <GridItem hideBelow={'md'}>

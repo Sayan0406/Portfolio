@@ -18,8 +18,6 @@ type NavLink = {
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { toggleColorMode } = useColorMode();
-  
-  
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -32,10 +30,8 @@ export default function Navbar() {
         borderWidth="1px"
         borderColor="gray.700"
         borderRadius="md"
-        bg="white"
-        _dark={{
-          bg: "#030711",
-        }}
+        bg="bg"
+      
       >
         <Flex
           justifyContent={{
@@ -49,13 +45,13 @@ export default function Navbar() {
             <Button
               variant={"outline"}
               padding={2}
-              _hover={{ bg: "#0d1325" }}
+              _hover={{ bg: "brand.MUTED" }}
               borderColor={"gray.600"}
               hideBelow={"md"}
             >
               <Link
                 fontWeight={"bold"}
-                // color={color}
+                
                 href="#"
                 _focus={{ outline: "none", boxShadow: "none" }}
                 _hover={{ textDecoration: "none" }}
@@ -67,13 +63,13 @@ export default function Navbar() {
           <Button
             variant={"outline"}
             padding={2}
-            _hover={{ bg: "#0d1325" }}
-            borderColor={"gray.600"}
+            _hover={{ bg: "brand.MUTED" }}
+            borderColor={"brand.EMPHASIZED"}
             hideFrom={"md"}
           >
             <Link
               fontWeight={"bold"}
-              // color={color}
+              
               href="#"
               _focus={{ outline: "none", boxShadow: "none" }}
               _hover={{ textDecoration: "none" }}
@@ -90,26 +86,16 @@ export default function Navbar() {
                   href={nav.href}
                   border={0}
                   p={2}
-                  // color={color}
-                  _hover={{ bg: "#0d1325" }}
-                  borderColor={"gray.600"}
+                  borderRadius={'md'}
+                  _hover={{ bg: "brand.MUTED", textDecoration : "none" }}
+                  
                 >
                   {nav.icon}
                   {nav.label}
                 </Link>
               );
             })}
-            {/* <Button
-              variant={"outline"}
-              color={"white"}
-              padding={2}
-              _hover={{ bg: "#0d1325" }}
-              borderColor={"gray.600"}
-              onClick={toggleColorMode}
-            >
-              {<IoMoonOutline />}
-            </Button> */}
-            <ColorModeButton onClick={toggleColorMode}/>
+            <ColorModeButton onClick={toggleColorMode} />
           </HStack>
 
           <Button
@@ -117,9 +103,8 @@ export default function Navbar() {
             hideFrom={"md"}
             variant={"outline"}
             padding={2}
-            _hover={{ bg: "#0d1325" }}
-            borderColor={"gray.600"}
-            color={"white"}
+            _hover={{ bg: "brand.MUTED" }}
+            color={"brand"}
             border={0}
             onClick={toggleMenu}
           >
@@ -135,28 +120,19 @@ export default function Navbar() {
                     key={index}
                     href={nav.href}
                     border={0}
+                    color="brand"
                     p={2}
-                    color={"white"}
-                    _hover={{ bg: "#0d1325" }}
-                    borderColor={"gray.600"}
+                    
+                    _hover={{ bg: "brand.MUTED", textDecoration : "none" }}
+                    borderColor={"brand.EMPHASIZED"}
                   >
                     {nav.icon}
                     {nav.label}
                   </Link>
                 );
               })}
-              {/* <Button
-                variant={"outline"}
-                color={"white"}
-                padding={2}
-                _hover={{ bg: "#0d1325" }}
-                borderColor={"gray.600"}
-              >
-                {colorMode === "light" ? <FaRegSun /> : <FaRegMoon />}
-                
-                
-              </Button> */}
-              <ColorModeButton />
+              <ColorModeButton borderWidth={"1px"} borderRadius={'md'} borderColor={'border'} _hover={{bg : "brand.MUTED"}} />
+
             </Stack>
           </Box>
         )}

@@ -4,19 +4,20 @@ import React from "react";
 export default function Contact() {
   return (
     <Stack gap={6} marginBottom={10} id="contact">
-      <Heading as={"h2"} fontSize={"lg"} fontWeight={"bold"}>
+      <Heading as={"h2"} fontSize={{base : "xl", md : "2xl"}} color={"brand"} fontWeight={"bold"}>
         Contact
       </Heading>
       <Box
         borderWidth={"1px"}
         p={5}
         borderRadius={"lg"}
-        borderColor={"gray.700"}
+        borderColor={"brand.EMPHASIZED"}
       >
-        <Text textAlign={"center"} fontSize={"sm"} color={"gray.500"}>
+        <Text textAlign={"center"} fontSize={"sm"} color={'brand.SECONDARY'}>
           Best way to reach me is through:{" "}
           <Link
-            color={"gray.500"}
+            _hover={{color : "brand"}}
+            color={'brand.SECONDARY'}
             _focus={{ boxShadow: "none" }}
             href="mailto:therahulchaurasia@gmail.com"
           >
