@@ -13,8 +13,6 @@ export const system = createSystem(defaultConfig, {
     'html , body' : {
       lineHeight :"1",
       scrollBehavior : "smooth",
-      // bg : "#030711",
-      // color : "white",
     },
    '::-webkit-scrollbar': {
       width: '10px',
