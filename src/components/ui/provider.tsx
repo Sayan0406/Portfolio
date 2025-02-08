@@ -24,17 +24,16 @@ export const system = createSystem(defaultConfig, {
 
     /* Track */
     '::-webkit-scrollbar-track': {
-      bg: 'gray.950',
+      bg: 'var(--chakra-colors-brand-bg)',
     },
     /* Handle */
     '::-webkit-scrollbar-thumb': {
-      bg: 'gray.700',
+      bg: 'var(--chakra-colors-brand-emphasized)',
       borderRadius: '10px',
     },
-
     /* Handle on hover */
     '::-webkit-scrollbar-thumb:hover': {
-      bg: 'white',
+      bg: 'var(--chakra-colors-brand-secondary)',
     },
   },
   theme: {
@@ -46,11 +45,6 @@ export const system = createSystem(defaultConfig, {
     },
     semanticTokens: {
       colors: {
-        bg: {
-          default: {
-            value: { _light: 'white', _dark: '#030711' },
-          },
-        },
         brand: {
           default: {
             value: { _light: '#0f172a', _dark: '#E1E7EF' },
@@ -66,6 +60,9 @@ export const system = createSystem(defaultConfig, {
           },
           emphasized: {
             value: { _light: 'colors.gray.300', _dark: 'colors.gray.700' },
+          },
+          bg: {
+            value: { _light: 'white', _dark: 'colors.bg' },
           },
         },
       },

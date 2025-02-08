@@ -143,7 +143,7 @@ const About = () => {
             </Text>
           </Flex>
         </Flex>
-        <Button borderRadius={'md'} bg={'brand'} color={'bg'}>
+        <Button borderRadius={'md'}>
           <IoMdCheckmarkCircleOutline />
           Hire me
         </Button>
