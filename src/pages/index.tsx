@@ -45,28 +45,34 @@ import { SiExpress, SiMui, SiPrisma } from 'react-icons/si'
 
 export default function Home() {
   return (
-    <Flex
-      gap={4}
-      flexDirection={{
-        base: 'column',
-        lg: 'row',
-      }}
-    >
-      <Box
-        width={{
-          base: '100%',
-          md: '40%',
+    <>
+      <title>{siteConfig.profile.name}</title>
+      <meta name="description" content={siteConfig.profile.about} />
+      <meta name="keywords" content={siteConfig.profile.keywords.join(',')} />
+      <meta name="author" content={siteConfig.profile.name} />
+      <Flex
+        gap={4}
+        flexDirection={{
+          base: 'column',
+          lg: 'row',
         }}
       >
-        <About />
-      </Box>
-      <Stack gap={10} flex={1}>
-        <TechStack />
-        <Projects />
-        <Work />
-        <Contact />
-      </Stack>
-    </Flex>
+        <Box
+          width={{
+            base: '100%',
+            md: '40%',
+          }}
+        >
+          <About />
+        </Box>
+        <Stack gap={10} flex={1}>
+          <TechStack />
+          <Projects />
+          <Work />
+          <Contact />
+        </Stack>
+      </Flex>
+    </>
   )
 }
 
