@@ -1,40 +1,307 @@
 'use client'
-import Contact from "@/components/ui/contact";
-import { MyContainer } from "@/components/ui/container";
-import Projects from "@/components/ui/projects";
-import Sidebar from "@/components/ui/sidebar";
-import TechStack from "@/components/ui/tech-stack";
-import Work from "@/components/ui/work";
-import { GridItem, SimpleGrid, Stack, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { CNLink } from '@/components/chakra-next'
+import { MyContainer } from '@/components/ui/container'
+import { siteConfig } from '@/libs/configs/site.config'
+import { projectsData } from '@/libs/data/project.data'
+import { worksData } from '@/libs/data/work.data'
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  GridItem,
+  Heading,
+  HStack,
+  Separator,
+  SimpleGrid,
+  Stack,
+  Text,
+} from '@chakra-ui/react'
+import { useState } from 'react'
+import { IconType } from 'react-icons'
+import { AiOutlineOpenAI } from 'react-icons/ai'
+import {
+  BiLogoFirebase,
+  BiLogoFlask,
+  BiLogoMongodb,
+  BiLogoRedux,
+  BiLogoTailwindCss,
+  BiLogoTypescript,
+} from 'react-icons/bi'
+import {
+  FaAws,
+  FaCss3,
+  FaDocker,
+  FaGitAlt,
+  FaGithub,
+  FaHtml5,
+  FaLinkedin,
+  FaNodeJs,
+  FaPython,
+  FaReact,
+} from 'react-icons/fa'
+import { FaRegCalendarDays, FaXTwitter } from 'react-icons/fa6'
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
+import { IoLogoJavascript } from 'react-icons/io5'
+import { RiNextjsFill } from 'react-icons/ri'
+import { SiExpress, SiMui, SiPrisma } from 'react-icons/si'
 
 export default function Home() {
+  return (
+    <Flex
+      gap={4}
+      flexDirection={{
+        base: 'column',
+        lg: 'row',
+      }}
+    >
+      <Box
+        width={{
+          base: '100%',
+          md: '40%',
+        }}
+      >
+        <About />
+      </Box>
+      <Stack gap={10} flex={1}>
+        <TechStack />
+        <Projects />
+        <Work />
+        <Contact />
+      </Stack>
+    </Flex>
+  )
+}
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+const About = () => {
+  const socials: {
+    Icon: IconType
+    href: string
+    title: string
+  }[] = [
+    {
+      Icon: FaGithub,
+      href: siteConfig.social.githubHref,
+      title: 'Github',
+    },
+    {
+      Icon: FaXTwitter,
+      href: siteConfig.social.twitterHref,
+      title: 'Twitter',
+    },
+    {
+      Icon: FaLinkedin,
+      href: siteConfig.social.linkedinHref,
+      title: 'LinkedIn',
+    },
+  ]
+  return (
+    <Stack
+      p={6}
+      gap={4}
+      borderWidth="1px"
+      borderColor="brand.emphasized"
+      borderRadius="md"
+      height={'fit-content'}
+      position={{ md: 'sticky' }}
+      top={{ md: 20 }}
+    >
+      <Heading as={'h1'} fontSize={'xl'} color={'brand'}>
+        {siteConfig.profile.name}
+      </Heading>
+      <Text fontSize={'sm'} color={'brand.secondary'}>
+        {siteConfig.profile.about}
+      </Text>
+      <Center>
+        {socials.map((item) => (
+          <Button key={item.title} variant={'outline'} p={2} borderRadius={'full'} border={0}>
+            <CNLink href={item.href} color={'Brand'}>
+              <item.Icon />
+            </CNLink>
+          </Button>
+        ))}
+      </Center>
+      <Flex direction={'column'} gap={4} justifyContent={'space-between'}>
+        <Flex justifyContent={'space-between'} gap={2}>
+          <Flex direction="column" flex={1}>
+            <Heading as="h3" fontSize="sm" fontWeight="bold" lineHeight="short">
+              {siteConfig.profile.experience}
+            </Heading>
+            <Text fontSize="xs" color="brand.secondary">
+              Experience
+            </Text>
+          </Flex>
+          <Flex direction="column" flex={1} textAlign={'right'}>
+            <Heading as="h3" fontSize="sm" fontWeight="bold" lineHeight="short">
+              {siteConfig.profile.location}
+            </Heading>
+            <Text fontSize="xs" color="brand.secondary">
+              Location
+            </Text>
+          </Flex>
+        </Flex>
+        <Button borderRadius={'md'} bg={'brand'} color={'bg'} _hover={{ bg: 'brand.subtel' }}>
+          <IoMdCheckmarkCircleOutline />
+          Hire me
+        </Button>
+      </Flex>
+    </Stack>
+  )
+}
 
-  const handleToggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen)
-  }
+const TechStack = () => {
+  const items = [
+    { name: 'TypeScript', badge: <BiLogoTypescript /> },
+    { name: 'JavaScript', badge: <IoLogoJavascript /> },
+    { name: 'React', badge: <FaReact /> },
+    { name: 'Next', badge: <RiNextjsFill /> },
+    { name: 'Tailwind', badge: <BiLogoTailwindCss /> },
+    { name: 'Redux', badge: <BiLogoRedux /> },
+    { name: 'Flask', badge: <BiLogoFlask /> },
+    { name: 'HTML5', badge: <FaHtml5 /> },
+    { name: 'CSS3', badge: <FaCss3 /> },
+    { name: 'Node', badge: <FaNodeJs /> },
+    { name: 'Express', badge: <SiExpress /> },
+    { name: 'Python', badge: <FaPython /> },
+    { name: 'MongoDB', badge: <BiLogoMongodb /> },
+    { name: 'AWS', badge: <FaAws /> },
+    { name: 'OpenAI', badge: <AiOutlineOpenAI /> },
+    { name: 'Firebase', badge: <BiLogoFirebase /> },
+    { name: 'Git', badge: <FaGitAlt /> },
+    { name: 'Docker', badge: <FaDocker /> },
+    { name: 'Prisma', badge: <SiPrisma /> },
+    { name: 'MUI', badge: <SiMui /> },
+  ]
 
   return (
-    <MyContainer>
-      <SimpleGrid columns={{base : 1, md : 3}} gap={8} p={{base : 2 , md : 0}}>
-        <GridItem hideFrom={'md'}>
-        <Text onClick={handleToggleSidebar} color={'brand.SECONDARY'}>{isSidebarOpen ? "Hide Sidebar" : "Show Sidebar"}</Text>
-        {isSidebarOpen && <Sidebar />}
-        </GridItem>
-        <GridItem hideBelow={'md'}>
-        <Sidebar />
-        </GridItem>
-        <GridItem colSpan={{ md: 2 }}>
-          <Stack gap={10}>
-          <TechStack />
-          <Projects />
-          <Work/>
-          <Contact/>
-          </Stack>
-        </GridItem>
+    <Stack gap={4} id="home">
+      <Heading as={'h2'} fontSize={'xl'} color={'brand'}>
+        Tech Stack
+      </Heading>
+      <SimpleGrid columns={{ base: 2, sm: 3 }} gap={4}>
+        {items.map((tech, index) => {
+          return (
+            <>
+              <Button
+                variant={'outline'}
+                _hover={{ bg: 'brand.muted' }}
+                color={'brand'}
+                borderColor={'brand.emphasized'}
+                key={index}
+              >
+                {tech.badge}
+                {tech.name}
+              </Button>
+            </>
+          )
+        })}
       </SimpleGrid>
-    </MyContainer>
-  );
+    </Stack>
+  )
+}
+
+const Projects = () => {
+  return (
+    <Stack gap={4} id="projects">
+      <Heading as={'h2'} fontSize={'2xl'} color={'brand'}>
+        Projects
+      </Heading>
+      {projectsData.map((project, index) => {
+        return (
+          <CNLink
+            key={index}
+            href={project.href}
+            borderWidth={'1px'}
+            borderColor={'brand.emphasized'}
+            _focus={{
+              textDecoration: 'none',
+              boxShadow: 'none',
+              borderColor: 'brand.emphasized',
+              border: 'none',
+            }}
+            borderRadius={'md'}
+            p={6}
+            _hover={{ textDecoration: 'none', bgColor: 'brand.muted' }}
+            target="_blank"
+          >
+            <Stack alignItems="start">
+              <Heading as="h3" fontSize="lg" color={'brand'} fontWeight="bold" textAlign="start">
+                {project.title}
+              </Heading>
+              <Text color="brand.secondary" fontSize={'sm'}>
+                {project.description}
+              </Text>
+            </Stack>
+          </CNLink>
+        )
+      })}
+    </Stack>
+  )
+}
+
+const Work = () => {
+  return (
+    <Stack gap={4} id="work">
+      <Heading as={'h2'} fontSize={'2xl'} color={'brand'}>
+        Work
+      </Heading>
+      <Stack
+        gap={5}
+        p={6}
+        borderWidth={'1px'}
+        borderColor={'brand.emphasized'}
+        borderRadius={'lg'}
+        separator={<Separator opacity={1} color={'brand'} />}
+      >
+        {worksData.map((work, index) => {
+          return (
+            <Stack gap={4} key={index} direction="column">
+              <Flex justify={'space-between'}>
+                <Heading as="h3" fontSize="lg" color={'brand'} fontWeight="bold" textAlign="start">
+                  {work.company}
+                </Heading>
+                <HStack
+                  borderWidth={'1px'}
+                  p={2}
+                  borderRadius={'lg'}
+                  borderColor={'brand.emphasized'}
+                >
+                  <FaRegCalendarDays size={14} />
+                  <Text fontSize={'xs'} color={'brand'}>
+                    {work.fromDate} - {work.toDate}
+                  </Text>
+                </HStack>
+              </Flex>
+              <Text fontSize={'sm'} color={'brand.secondary'}>
+                {work.description}
+              </Text>
+            </Stack>
+          )
+        })}
+      </Stack>
+    </Stack>
+  )
+}
+
+const Contact = () => {
+  return (
+    <Stack gap={6} marginBottom={10} id="contact">
+      <Heading as={'h2'} fontSize={{ base: 'xl', md: '2xl' }} color={'brand'}>
+        Contact
+      </Heading>
+      <Box borderWidth={'1px'} p={5} borderRadius={'lg'} borderColor={'brand.emphasized'}>
+        <Text textAlign={'center'} fontSize={'sm'} color={'brand.secondary'}>
+          Best way to reach me is through:{' '}
+          <CNLink
+            _hover={{ color: 'brand' }}
+            color={'brand.secondary'}
+            _focus={{ boxShadow: 'none' }}
+            href={siteConfig.contact.emailHref}
+          >
+            {siteConfig.contact.email}
+          </CNLink>
+        </Text>
+      </Box>
+    </Stack>
+  )
 }

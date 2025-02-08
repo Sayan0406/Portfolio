@@ -1,24 +1,26 @@
 'use client'
 
-import {
-  ChakraProvider,
-  createSystem,
-  defaultConfig
-} from '@chakra-ui/react'
+import { ChakraProvider, createSystem, defaultConfig } from '@chakra-ui/react'
 import { ColorModeProvider, ColorModeProviderProps } from './color-mode'
+import { Fira_Sans as BodyFont } from 'next/font/google'
 
+// *** Fonts ***
+export const bodyFont = BodyFont({
+  variable: '--font-body',
+  weight: ['400'],
+  subsets: ['latin'],
+})
 
 export const system = createSystem(defaultConfig, {
   globalCss: {
-    'html , body' : {
-      lineHeight :"1",
-      scrollBehavior : "smooth",
+    'html , body': {
+      lineHeight: '1.2',
+      scrollBehavior: 'smooth',
     },
-   '::-webkit-scrollbar': {
+    '::-webkit-scrollbar': {
       width: '10px',
-      zIndex : "1"
+      zIndex: '1',
     },
-   
 
     /* Track */
     '::-webkit-scrollbar-track': {
@@ -36,36 +38,39 @@ export const system = createSystem(defaultConfig, {
     },
   },
   theme: {
+    tokens: {
+      fonts: {
+        heading: { value: bodyFont.style.fontFamily },
+        body: { value: bodyFont.style.fontFamily },
+      },
+    },
     semanticTokens: {
       colors: {
         bg: {
-          DEFAULT: {
-            value: { _light: "{colors.white}", _dark: "#030711" }, 
+          default: {
+            value: { _light: '{colors.white}', _dark: '#030711' },
           },
         },
         brand: {
-          DEFAULT: {
-            value: { _light: "#0f172a", _dark: "#E1E7EF" }, 
+          default: {
+            value: { _light: '#0f172a', _dark: '#E1E7EF' },
           },
-          SECONDARY : {
-            value : { _light: "#7f8EA3", _dark: "#7f8EA3"}
+          secondary: {
+            value: { _light: '#7f8EA3', _dark: '#7f8EA3' },
           },
-          SUBTLE: {
-            value : { _light: "#0f172a", _dark: "colors.gray.200"}
+          subtel: {
+            value: { _light: '#0f172a', _dark: 'colors.gray.200' },
           },
-          MUTED: {
-            value: { _light: "#f1f5f9", _dark: "#384252" }, 
+          muted: {
+            value: { _light: '#f1f5f9', _dark: '#384252' },
           },
-          EMPHASIZED: {
-            value: { _light: "colors.gray.300", _dark: "colors.gray.700" }, 
-          }
+          emphasized: {
+            value: { _light: 'colors.gray.300', _dark: 'colors.gray.700' },
+          },
         },
-        
-      }
-    }
-  }
-
-  
+      },
+    },
+  },
 })
 
 export function Provider(props: ColorModeProviderProps) {
@@ -73,6 +78,5 @@ export function Provider(props: ColorModeProviderProps) {
     <ChakraProvider value={system}>
       <ColorModeProvider {...props} />
     </ChakraProvider>
-  );
+  )
 }
-
