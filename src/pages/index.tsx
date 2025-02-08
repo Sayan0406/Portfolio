@@ -1,6 +1,5 @@
 'use client'
 import { CNLink } from '@/components/chakra-next'
-import { MyContainer } from '@/components/ui/container'
 import { siteConfig } from '@/libs/configs/site.config'
 import { projectsData } from '@/libs/data/project.data'
 import { worksData } from '@/libs/data/work.data'
@@ -9,7 +8,6 @@ import {
   Button,
   Center,
   Flex,
-  GridItem,
   Heading,
   HStack,
   Separator,
@@ -17,7 +15,6 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import { useState } from 'react'
 import { IconType } from 'react-icons'
 import { AiOutlineOpenAI } from 'react-icons/ai'
 import {
@@ -100,11 +97,11 @@ const About = () => {
       p={6}
       gap={4}
       borderWidth="1px"
-      borderColor="brand.emphasized"
+      borderColor="gray.subtel"
       borderRadius="md"
       height={'fit-content'}
       position={{ md: 'sticky' }}
-      top={{ md: 20 }}
+      top={{ md: 24 }}
     >
       <Heading as={'h1'} fontSize={'xl'} color={'brand'}>
         {siteConfig.profile.name}
@@ -140,7 +137,7 @@ const About = () => {
             </Text>
           </Flex>
         </Flex>
-        <Button borderRadius={'md'} bg={'brand'} color={'bg'} _hover={{ bg: 'brand.subtel' }}>
+        <Button borderRadius={'md'} bg={'brand'} color={'bg'}>
           <IoMdCheckmarkCircleOutline />
           Hire me
         </Button>
@@ -186,7 +183,7 @@ const TechStack = () => {
                 variant={'outline'}
                 _hover={{ bg: 'brand.muted' }}
                 color={'brand'}
-                borderColor={'brand.emphasized'}
+                borderColor={'gray.subtel'}
                 key={index}
               >
                 {tech.badge}
@@ -212,7 +209,7 @@ const Projects = () => {
             key={index}
             href={project.href}
             borderWidth={'1px'}
-            borderColor={'brand.emphasized'}
+            borderColor={'gray.subtel'}
             _focus={{
               textDecoration: 'none',
               boxShadow: 'none',
@@ -249,32 +246,35 @@ const Work = () => {
         gap={5}
         p={6}
         borderWidth={'1px'}
-        borderColor={'brand.emphasized'}
+        borderColor={'gray.subtel'}
         borderRadius={'lg'}
         separator={<Separator opacity={1} color={'brand'} />}
       >
         {worksData.map((work, index) => {
           return (
             <Stack gap={4} key={index} direction="column">
-              <Flex justify={'space-between'}>
+              <Flex justify={'space-between'} alignItems={'end'}>
                 <Heading as="h3" fontSize="lg" color={'brand'} fontWeight="bold" textAlign="start">
                   {work.company}
                 </Heading>
-                <HStack
-                  borderWidth={'1px'}
-                  p={2}
-                  borderRadius={'lg'}
-                  borderColor={'brand.emphasized'}
-                >
+                <HStack borderWidth={'1px'} p={2} borderRadius={'lg'} borderColor={'gray.subtel'}>
                   <FaRegCalendarDays size={14} />
                   <Text fontSize={'xs'} color={'brand'}>
                     {work.fromDate} - {work.toDate}
                   </Text>
                 </HStack>
               </Flex>
-              <Text fontSize={'sm'} color={'brand.secondary'}>
-                {work.description}
-              </Text>
+              <Stack
+                fontSize={'sm'}
+                color={'brand.secondary'}
+                as={'ul'}
+                listStyleType={'disc'}
+                ml={4}
+              >
+                {work.deliverable.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </Stack>
             </Stack>
           )
         })}
@@ -289,7 +289,7 @@ const Contact = () => {
       <Heading as={'h2'} fontSize={{ base: 'xl', md: '2xl' }} color={'brand'}>
         Contact
       </Heading>
-      <Box borderWidth={'1px'} p={5} borderRadius={'lg'} borderColor={'brand.emphasized'}>
+      <Box borderWidth={'1px'} p={5} borderRadius={'lg'} borderColor={'gray.subtel'}>
         <Text textAlign={'center'} fontSize={'sm'} color={'brand.secondary'}>
           Best way to reach me is through:{' '}
           <CNLink

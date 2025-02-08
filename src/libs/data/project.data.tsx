@@ -6,39 +6,27 @@ export type Projects = {
 
 export const projectsData: Projects[] = [
   {
-    title: 'With Sam',
+    title: 'Task Manager App',
     description:
-      'An awesome portfolio website for Samihan, who is a Video Editor and YouTuber. The website highlights his eclectic personality and showcases his work.',
-    href: 'https://withsam.in/',
+      'A simple task management application to create, update, and delete tasks with a clean UI.',
+    href: '#',
   },
   {
-    title: 'Asahi Ramen',
+    title: 'E-Commerce Platform',
     description:
-      'A website for the best Ramen House in Mumbai and there is as good as there ramen. If we say so ourselves.',
-    href: 'https://asahiramen.in/',
+      'A full-stack e-commerce platform with product listings, cart functionality, and payment integration.',
+    href: '#',
   },
   {
-    title: 'Chakra Framer',
+    title: 'Weather Forecast App',
     description:
-      'UI lib that provides free ready to use chakra UI and Framer Motion components for your next project.',
-    href: 'https://chakraframer.com/',
+      'A web app that provides real-time weather updates based on location using an external API.',
+    href: '#',
   },
   {
-    title: 'GPA Calculate',
+    title: 'Portfolio Website',
     description:
-      'A GPA Calculator that is for students seeking accurate and fast GPA calculations. This is a pSEO implementation experiment.',
-    href: 'https://gpacalculate.com/',
-  },
-  {
-    title: 'High Rise Realty',
-    description:
-      'High Rise Realty has been a trusted name in the real estate industry for over 15 years in Mumbai so we gave them a website that reflects their legacy.',
-    href: 'https://highriserealty.in/',
-  },
-  {
-    title: 'Tencode Life Sciences',
-    description:
-      'Tencode is a pharmaceutical company that is on a mission to make healthcare affordable and accessible to all. We gave them a website that reflects their wide range of products and services.',
-    href: 'https://www.tencodlife.com/',
+      'A personal portfolio website showcasing projects, skills, and experience with a modern design.',
+    href: '#',
   },
 ]

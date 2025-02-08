@@ -1,15 +1,13 @@
 'use client'
 import { ColorModeButton, useColorMode } from '@/components/ui/color-mode'
+import { siteConfig } from '@/libs/configs/site.config'
 import { Box, Button, Flex, HStack, Link, Stack } from '@chakra-ui/react'
 import { useState } from 'react'
-import { BsBriefcase } from 'react-icons/bs'
-import { IoHomeOutline, IoMenu } from 'react-icons/io5'
-import { MdMailOutline } from 'react-icons/md'
+import { IoBriefcaseOutline, IoHomeOutline, IoMailOpenOutline, IoMenu } from 'react-icons/io5'
 import { PiProjectorScreen } from 'react-icons/pi'
 import { RxCross2 } from 'react-icons/rx'
 import { Avatar } from './ui/avatar'
 import { MyContainer } from './ui/container'
-import { siteConfig } from '@/libs/configs/site.config'
 type NavLink = {
   label: string
   icon: React.ReactNode
@@ -24,7 +22,7 @@ export default function Navbar() {
     setIsMenuOpen((prev) => !prev)
   }
   return (
-    <MyContainer zIndex={1} position={'sticky'} top={2}>
+    <MyContainer zIndex={1} position={'sticky'} top={3}>
       <Box mb={10} borderWidth="1px" borderColor="gray.subtel" borderRadius="md" bg="bg">
         <Flex
           justifyContent={{
@@ -57,7 +55,7 @@ export default function Navbar() {
             variant={'outline'}
             padding={2}
             _hover={{ bg: 'brand.muted' }}
-            borderColor={'brand.emphasized'}
+            borderColor={'gray.subtel'}
             hideFrom={'md'}
           >
             <Link
@@ -101,7 +99,7 @@ export default function Navbar() {
           </Button>
         </Flex>
         {isMenuOpen && (
-          <Box hideFrom={'md'} p={2} color={'red'}>
+          <Box hideFrom={'md'} p={2}>
             <Stack gap={4}>
               {navitems.map((nav, index) => {
                 return (
@@ -112,7 +110,7 @@ export default function Navbar() {
                     color="brand"
                     p={2}
                     _hover={{ bg: 'brand.muted', textDecoration: 'none' }}
-                    borderColor={'brand.emphasized'}
+                    borderColor={'gray.subtel'}
                   >
                     {nav.icon}
                     {nav.label}
@@ -146,12 +144,12 @@ const navitems: NavLink[] = [
   },
   {
     label: 'Work',
-    icon: <BsBriefcase />,
+    icon: <IoBriefcaseOutline />,
     href: '#work',
   },
   {
     label: 'Contact',
-    icon: <MdMailOutline />,
+    icon: <IoMailOpenOutline />,
     href: '#contact',
   },
 ]

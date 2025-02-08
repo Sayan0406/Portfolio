@@ -48,7 +48,7 @@ export const system = createSystem(defaultConfig, {
       colors: {
         bg: {
           default: {
-            value: { _light: '{colors.white}', _dark: '#030711' },
+            value: { _light: 'white', _dark: '#030711' },
           },
         },
         brand: {
@@ -59,10 +59,10 @@ export const system = createSystem(defaultConfig, {
             value: { _light: '#7f8EA3', _dark: '#7f8EA3' },
           },
           subtel: {
-            value: { _light: '#0f172a', _dark: 'colors.gray.200' },
+            value: { _light: 'colors.gray.800', _dark: 'colors.gray.200' },
           },
           muted: {
-            value: { _light: '#f1f5f9', _dark: '#384252' },
+            value: { _light: 'colors.gray.50', _dark: 'colors.gray.950' },
           },
           emphasized: {
             value: { _light: 'colors.gray.300', _dark: 'colors.gray.700' },
