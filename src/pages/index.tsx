@@ -60,7 +60,7 @@ export default function Home() {
         <Box
           width={{
             base: '100%',
-            md: '40%',
+            lg: '40%',
           }}
         >
           <About />
@@ -184,18 +184,16 @@ const TechStack = () => {
       <SimpleGrid columns={{ base: 2, sm: 3 }} gap={4}>
         {items.map((tech, index) => {
           return (
-            <>
-              <Button
-                variant={'outline'}
-                _hover={{ bg: 'brand.muted' }}
-                color={'brand'}
-                borderColor={'gray.subtel'}
-                key={index}
-              >
-                {tech.badge}
-                {tech.name}
-              </Button>
-            </>
+            <Button
+              key={index}
+              variant={'outline'}
+              _hover={{ bg: 'brand.muted' }}
+              color={'brand'}
+              borderColor={'gray.subtel'}
+            >
+              {tech.badge}
+              {tech.name}
+            </Button>
           )
         })}
       </SimpleGrid>
