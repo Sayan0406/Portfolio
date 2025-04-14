@@ -1,12 +1,6 @@
-import { BoxProps, Container, ContainerProps } from '@chakra-ui/react'
-import { ReactNode } from 'react'
+import { Container, ContainerProps } from '@chakra-ui/react'
 
-interface Props extends ContainerProps {
-  boxProps?: BoxProps
-  children: ReactNode
-}
-
-export const MyContainer = ({ children, ...props }: Props) => {
+export const MyContainer = ({ children, ...props }: ContainerProps) => {
   return (
     <Container px={{ base: 2, md: 4 }} maxW={'5xl'} mx={'auto'} {...props}>
       {children}

@@ -49,7 +49,6 @@ export default function Home() {
       <title>{siteConfig.profile.name}</title>
       <meta name="description" content={siteConfig.profile.about} />
       <meta name="keywords" content={siteConfig.profile.keywords.join(',')} />
-      <meta name="author" content={siteConfig.profile.name} />
       <Flex
         gap={4}
         flexDirection={{

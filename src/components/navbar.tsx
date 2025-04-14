@@ -8,11 +8,6 @@ import { PiProjectorScreen } from 'react-icons/pi'
 import { RxCross2 } from 'react-icons/rx'
 import { Avatar } from './ui/avatar'
 import { MyContainer } from './ui/container'
-type NavLink = {
-  label: string
-  icon: React.ReactNode
-  href: string
-}
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -110,7 +105,6 @@ export default function Navbar() {
                     color="brand"
                     p={2}
                     _hover={{ bg: 'brand.muted', textDecoration: 'none' }}
-                    borderColor={'gray.subtel'}
                   >
                     {nav.icon}
                     {nav.label}
@@ -130,7 +124,11 @@ export default function Navbar() {
     </MyContainer>
   )
 }
-
+type NavLink = {
+  label: string
+  icon: React.ReactNode
+  href: string
+}
 const navitems: NavLink[] = [
   {
     label: 'Home',
