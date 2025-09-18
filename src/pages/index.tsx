@@ -25,6 +25,7 @@ import {
   BiLogoTailwindCss,
   BiLogoTypescript,
 } from 'react-icons/bi'
+import { CgCloud } from 'react-icons/cg'
 import {
   FaAws,
   FaCss3,
@@ -86,11 +87,11 @@ const About = () => {
       href: siteConfig.social.githubHref,
       title: 'Github',
     },
-    {
-      Icon: FaXTwitter,
-      href: siteConfig.social.twitterHref,
-      title: 'Twitter',
-    },
+    // {
+    //   Icon: FaXTwitter,
+    //   href: siteConfig.social.twitterHref,
+    //   title: 'Twitter',
+    // },
     {
       Icon: FaLinkedin,
       href: siteConfig.social.linkedinHref,
@@ -142,7 +143,8 @@ const About = () => {
             </Text>
           </Flex>
         </Flex>
-        <Button borderRadius={'md'}>
+        {/* Updated 'Hire me' button with mailto link */}
+        <Button as={CNLink} href={`mailto:${siteConfig.contact.email}`} borderRadius={'md'}>
           <IoMdCheckmarkCircleOutline />
           Hire me
         </Button>
@@ -158,21 +160,24 @@ const TechStack = () => {
     { name: 'React', badge: <FaReact /> },
     { name: 'Next', badge: <RiNextjsFill /> },
     { name: 'Tailwind', badge: <BiLogoTailwindCss /> },
-    { name: 'Redux', badge: <BiLogoRedux /> },
-    { name: 'Flask', badge: <BiLogoFlask /> },
-    { name: 'HTML5', badge: <FaHtml5 /> },
+    // { name: 'Redux', badge: <BiLogoRedux /> },
+    // { name: 'Flask', badge: <BiLogoFlask /> },
+    { name: 'Python', badge: <FaPython /> },
+    // { name: 'C++', badge: < progra/> },
     { name: 'CSS3', badge: <FaCss3 /> },
     { name: 'Node', badge: <FaNodeJs /> },
     { name: 'Express', badge: <SiExpress /> },
     { name: 'Python', badge: <FaPython /> },
     { name: 'MongoDB', badge: <BiLogoMongodb /> },
     { name: 'AWS', badge: <FaAws /> },
+    {name: 'Google Cloud', badge: <CgCloud />},
     { name: 'OpenAI', badge: <AiOutlineOpenAI /> },
-    { name: 'Firebase', badge: <BiLogoFirebase /> },
+
+    // { name: '', badge: <BiLogoFirebase /> },
     { name: 'Git', badge: <FaGitAlt /> },
-    { name: 'Docker', badge: <FaDocker /> },
-    { name: 'Prisma', badge: <SiPrisma /> },
-    { name: 'MUI', badge: <SiMui /> },
+    // { name: 'Docker', badge: <FaDocker /> },
+    // { name: 'Prisma', badge: <SiPrisma /> },
+    // { name: 'MUI', badge: <SiMui /> },
   ]
 
   return (
@@ -260,12 +265,7 @@ const Work = () => {
                 <Heading as="h3" fontSize="lg" color={'brand'} fontWeight="bold" textAlign="start">
                   {work.company}
                 </Heading>
-                <HStack borderWidth={'1px'} p={2} borderRadius={'lg'} borderColor={'gray.subtel'}>
-                  <FaRegCalendarDays size={14} />
-                  <Text fontSize={'xs'} color={'brand'}>
-                    {work.fromDate} - {work.toDate}
-                  </Text>
-                </HStack>
+                {/* The entire HStack that contained the date and the circle/badge has been removed */}
               </Flex>
               <Stack
                 fontSize={'sm'}

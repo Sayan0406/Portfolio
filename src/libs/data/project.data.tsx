@@ -6,22 +6,22 @@ export type Projects = {
 
 export const projectsData: Projects[] = [
   {
-    title: 'Task Manager App',
+    title: 'Advanced Task Manager App',
     description:
-      'A simple task management application to create, update, and delete tasks with a clean UI.',
-    href: '#',
+      'A advanced task management application to create, update, and delete tasks with a clean UI.',
+    href: 'https://sayan0406.github.io/Advanced_Task_Manager/',
   },
   {
-    title: 'E-Commerce Platform',
+    title: 'Image Element Generator',
     description:
-      'A full-stack e-commerce platform with product listings, cart functionality, and payment integration.',
-    href: '#',
+      ' A React-based web application that generates HTML image elements with customizable attributes and styles.',
+    href: 'https://htmlimgcreator.vercel.app/',
   },
   {
-    title: 'Weather Forecast App',
+    title: 'Plant Disease Detection',
     description:
-      'A web app that provides real-time weather updates based on location using an external API.',
-    href: '#',
+      'A machine learning application that identifies plant diseases from images using a trained model.',
+    href: '',
   },
   {
     title: 'Portfolio Website',

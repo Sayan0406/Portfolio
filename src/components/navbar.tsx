@@ -42,7 +42,7 @@ export default function Navbar() {
                 _focus={{ outline: 'none', boxShadow: 'none' }}
                 _hover={{ textDecoration: 'none' }}
               >
-                @{siteConfig.social.twitterHandle}
+                @{siteConfig.social.githubHandle}
               </Link>
             </Button>
           </HStack>
